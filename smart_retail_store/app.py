@@ -133,7 +133,6 @@ def hybrid_recommendations(train_data, target_user_id, item_name, top_n):
 
 
 
-# Load data
 data = load_data()
 trend = pd.read_csv('data/trending_products.csv')
 
@@ -161,7 +160,7 @@ user_id = st.sidebar.number_input("Enter your User ID:", min_value=1, step=1, va
 top_n = st.sidebar.slider("Number of recommendations to show:", 1, 20, 10)
 
 if st.sidebar.button("Get Hybrid Recommendations"):
-    if not item_name or user_id <= 0:  # user_id is now guaranteed to be defined
+    if not item_name or user_id <= 0: 
         st.warning("Please provide valid inputs for both the product name and user ID.")
     else:
         hybrid_recs = hybrid_recommendations(data, user_id, item_name, top_n)
